@@ -182,6 +182,7 @@ var dataList = [
     'open': null,
     'list': null
   },
+  //管理员type菜单登记为2
   {
     'menuId': 15,
     'parentId': 2,
@@ -376,8 +377,23 @@ var dataList = [
     'orderNum': 6,
     'open': null,
     'list': null
-  }
+  },
+/*  {
+    'menuId': 31,
+    'parentId': 2,
+    'parentName': '活动列表',
+    'name': '新增',
+    'url': null,
+    'perms': 'extra:activity:save,extra:activity:select',
+    'type': 2,
+    'icon': null,
+    'orderNum': 0,
+    'open': null,
+    'list': null
+  } */
+
 ]
+/* 动态路由 */
 var navDataList = [
   {
     'menuId': 1,
@@ -494,7 +510,22 @@ var navDataList = [
         'orderNum': 7,
         'open': null,
         'list': null
+      },
+      //活动管理(一级菜单)
+      {
+        'menuId': 31,
+        'parentId': 1,//父级菜单，一级菜单为0
+        'parentName': null,//菜单名称
+        'name': '活动管理',
+        'url': 'extra/activity',//菜单url
+        'perms': null,//授权
+        'type': 1,//'类型   0：目录   1：菜单   2：按钮'
+        'icon': 'log',
+        'orderNum': 7,//排序
+        'open': null,
+        'list': null
       }
+
     ]
   }
 ]

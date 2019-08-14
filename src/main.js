@@ -10,6 +10,7 @@ import '@/assets/scss/index.scss'
 import httpRequest from '@/utils/httpRequest' // api: https://github.com/axios/axios
 import { isAuth } from '@/utils'
 import cloneDeep from 'lodash/cloneDeep'
+var Less =require('Less');
 
 Vue.use(VueCookie)
 Vue.config.productionTip = false
@@ -22,6 +23,10 @@ if (process.env.NODE_ENV !== 'production') {
 // 挂载全局
 Vue.prototype.$http = httpRequest // ajax请求方法
 Vue.prototype.isAuth = isAuth     // 权限方法
+
+// 全局变量
+/* Vue.prototype.cetus="192.168.1.5:8080/cetus";
+Vue.prototype.image_server="192.168.1.5:8000"; */
 
 // 保存整站vuex本地储存初始状态
 window.SITE_CONFIG['storeState'] = cloneDeep(store.state)

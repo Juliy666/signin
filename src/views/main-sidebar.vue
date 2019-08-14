@@ -24,6 +24,7 @@
             <span slot="title">ueditor</span>
           </el-menu-item>
         </el-submenu>
+        <!-- 动态路由-->
         <sub-menu
           v-for="menu in menuList"
           :key="menu.menuId"
