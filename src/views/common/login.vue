@@ -9,14 +9,14 @@
         <div class="login-main">
           <h3 class="login-title">管理员登录</h3>
           <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()" status-icon>
-            <el-form-item prop="userName">
-              <el-input v-model="dataForm.userName" placeholder="帐号"></el-input>
+            <el-form-item prop="account">
+              <el-input v-model="dataForm.account" placeholder="帐号"></el-input>
             </el-form-item>
             <el-form-item prop="password">
               <el-input v-model="dataForm.password" type="password" placeholder="密码"></el-input>
             </el-form-item>
             <el-form-item prop="captcha">
-              <el-row :gutter="20">
+<!--              <el-row :gutter="20">
                 <el-col :span="14">
                   <el-input v-model="dataForm.captcha" placeholder="验证码">
                   </el-input>
@@ -24,7 +24,7 @@
                 <el-col :span="10" class="login-captcha">
                   <img :src="captchaPath" @click="getCaptcha()" alt="">
                 </el-col>
-              </el-row>
+              </el-row> -->
             </el-form-item>
             <el-form-item>
               <el-button class="login-btn-submit" type="primary" @click="dataFormSubmit()">登录</el-button>
@@ -42,21 +42,21 @@
     data () {
       return {
         dataForm: {
-          userName: '',
+          account: '',
           password: '',
-          uuid: '',
-          captcha: ''
+/*          uuid: '',
+          captcha: '' */
         },
         dataRule: {
-          userName: [
+          account: [
             { required: true, message: '帐号不能为空', trigger: 'blur' }
           ],
           password: [
             { required: true, message: '密码不能为空', trigger: 'blur' }
           ],
-          captcha: [
+          /* captcha: [
             { required: true, message: '验证码不能为空', trigger: 'blur' }
-          ]
+          ] */
         },
         captchaPath: ''
       }
@@ -70,13 +70,13 @@
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
             this.$http({
-              url: this.$http.adornUrl('/sys/login'),
+              url: this.$http.adornUrl('v1/login'),
               method: 'post',
               data: this.$http.adornData({
-                'username': this.dataForm.userName,
+                'account': this.dataForm.account,
                 'password': this.dataForm.password,
                 'uuid': this.dataForm.uuid,
-                'captcha': this.dataForm.captcha
+                /* 'captcha': this.dataForm.captcha */
               })
             }).then(({data}) => {
               if (data && data.code === 0) {

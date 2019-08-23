@@ -1,5 +1,5 @@
 {
-  "name": "signin",
+  "name": "applyapi",
   "version": "1.2.2",
   "description": "签到后台管理系统基于vue、element-ui构建开发，实现签到后台管理前端功能。",
   "author": "Juliy <820501150@qq.com>",
@@ -19,11 +19,14 @@
     "babel-plugin-component": "0.10.1",
     "babel-polyfill": "6.26.0",
     "element-ui": "2.8.2",
+    "file-saver": "^2.0.2",
     "gulp": "3.9.1",
     "gulp-concat": "2.6.1",
     "gulp-load-plugins": "1.5.0",
     "gulp-replace": "0.6.1",
     "gulp-shell": "0.6.5",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "lodash": "4.17.5",
     "node-sass": "4.9.0",
     "npm": "^6.9.0",
@@ -34,8 +37,7 @@
     "vue-cookie": "1.1.4",
     "vue-router": "3.0.1",
     "vuex": "3.0.1",
-    "less": "^3.9.0",
-    "less-loader": "^5.0.0"
+    "xlsx": "^0.15.1"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
@@ -78,6 +80,7 @@
     "postcss-import": "11.0.0",
     "postcss-loader": "2.0.8",
     "rimraf": "2.6.0",
+    "script-loader": "^0.7.2",
     "selenium-server": "3.0.1",
     "semver": "5.3.0",
     "shelljs": "0.7.6",

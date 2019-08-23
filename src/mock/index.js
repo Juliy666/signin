@@ -7,8 +7,7 @@ import * as sysLog from './modules/sys-log'
 import * as sysMenu from './modules/sys-menu'
 import * as sysRole from './modules/sys-role'
 import * as sysUser from './modules/sys-user'
-import * as extraActivity from './modules/extra-activity'
-import * as extraDownload from './modules/extra-download'
+
 
 // tips
 // 1. 开启/关闭[业务模块]拦截, 通过调用fnCreate方法[isOpen参数]设置.
@@ -21,8 +20,7 @@ fnCreate(sysLog, true)
 fnCreate(sysMenu, true)
 fnCreate(sysRole, true)
 fnCreate(sysUser, true)
-fnCreate(extraActivity,true)
-fnCreate(extraDownload,true)
+
 
 /**
  * 创建mock模拟数据
