@@ -1,5 +1,5 @@
 <template>
-  <div class="mod-config">
+  <div class="mod-download">
     <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
         <el-input v-model="dataForm.key" placeholder="参数名" clearable></el-input>
@@ -8,7 +8,7 @@
         <el-button @click="getDataList()">查询活动</el-button>
       <el-button  type="primary" @click="addOrUpdateHandle()">新增活动</el-button><!-- v-if="isAuth('extra:activity:save')" -->
       <el-button  type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button><!-- v-if="isAuth('extra:activity:delete')" -->
-      <el-button  type="primary" @click="exportHandle()">活动名单导出</el-button>
+      <el-button  type="danger" @click="downloadHandle()">活动名单导出</el-button>
       </el-form-item>
     </el-form>
     <el-table
@@ -120,7 +120,7 @@
     <!-- 弹窗, 新增 / 修改 -->
     <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"></add-or-update>
     <!-- 弹窗, 下载活动数据 -->
-    <download v-if="downloadVisible" ref="exportHandle"></download>
+    <download v-if="downloadVisible" ref="download"></download>
   </div>
 </template>
 
@@ -139,11 +139,13 @@
         totalPage: 0,
         dataListLoading: false,
         dataListSelections: [],
-        addOrUpdateVisible: false
+        addOrUpdateVisible: false,
+        downloadVisible: false
       }
     },
     components: {
-      AddOrUpdate
+      AddOrUpdate,
+      Download
     },
     activated () {
       this.getDataList()
@@ -224,8 +226,12 @@
         })
       },
       //显示活动名单
-      exportHandle(){
-        console.log("111");
+      downloadHandle(){
+          this.downloadVisible=true
+          this.$nextTick(() => {
+          this.$refs.download.init()
+
+        })
       }
 
     }
